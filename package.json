@@ -1,9 +1,17 @@
 {
-  "scripts":{
+  "scripts": {
     "dev": "nodemon app.js"
   },
   "dependencies": {
     "express": "^4.19.2",
     "nodemon": "^3.1.4"
-  }
+  },
+  "name": "umbrella-dev-real",
+  "version": "1.0.0",
+  "description": "barry's fall 2024 dev thingy",
+  "main": "app.js",
+  "devDependencies": {},
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
 }

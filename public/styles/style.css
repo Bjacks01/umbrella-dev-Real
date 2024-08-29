@@ -1,0 +1,92 @@
+body {
+    overflow-x: hidden;
+}
+#headPanel {
+    background-color: #A6ABAC;
+    margin-bottom: 0px;
+  }
+  #intro {
+    margin-left: 20px;
+  }
+  #classDate {
+    padding-bottom: 4px;
+  }
+  .navbar {
+    background-color: #429282;
+    margin-top: -8px;
+  }
+  #navLinks {
+    margin-left: 20px;
+  }
+  .navbar a{
+    color: white;
+  }
+  .navbar a:hover {
+    color: yellow;
+  }
+  #foot{
+    text-align: center;
+    font-size: 14px;
+  }
+  /* #mainContent {
+    text-align: center;
+  } */
+  .infoPara {
+    margin-left: 100px;
+    margin-right: 100px;
+    margin-top: 50px;
+    margin-bottom: 50px;
+    font-size: 20px;
+  }
+  #cardRow {
+    margin-left: 100px;
+  }
+  .card {
+    display: inline-block;
+    width: 18rem;
+  }
+  .linkBtn {
+    background-color: #429282;
+    color: white;
+    text-align: center;
+    margin: 0 auto;
+    display: block;
+  }
+  .linkBtn:hover {
+    color: yellow;
+  }
+  #rbgOrder {
+    height: auto;
+    width: 100%;
+    border-style: solid;
+    border-color:#A6ABAC;
+    margin-bottom: 50px;
+  }
+  #doorDash {
+    width: 50%;
+    display: block;
+    margin: auto;
+    margin-bottom: 50px;
+  }
+  #iFrameBtns {
+    background-color:#429282;
+    color: white;
+    width: 200px;
+    margin: auto;
+    display: block;
+  }
+  #iFrameBtns:hover {
+    color: yellow;
+  }
+  #content2 {
+    display: none;
+  }
+  #webIframe {
+    width: 95%;
+    height: 500px;
+    margin-left: 40px;
+    box-shadow: 0px 0px 2px 2px #429282;
+}
+.linkDiv {
+    text-align: center;
+}
