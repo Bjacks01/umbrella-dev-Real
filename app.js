@@ -9,4 +9,14 @@ app.get('/', function (req, res) {
   res.sendFile('index.html');
 })
 
+app.get('/', function (req, res) {
+
+})
+app.get('/ejs', (req,res)=>{
+  ``
+  res.render('index', {
+    myServerVariable : "something from server"
+  });
+})
+
 app.listen(5000)
