@@ -1,11 +1,13 @@
+require('dotenv').config()
 const express = require('express')
 const app = express()
+const { MongoClient, ServerApiVersion } = require('mongodb');
+const uri = process.env.MONGO_URI; 
+
+app.set('view engine', 'ejs')
 app.use(express.static('./public/'))
 
-const { MongoClient, ServerApiVersion } = require('mongodb');
-const uri = "mongodb+srv://Brandon:<db_password>@cluster0.ta5nh.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0";
-
-console.log(uri);
+//console.log(uri);
 //testchange
 
 // Create a MongoClient with a MongoClientOptions object to set the Stable API version
@@ -30,6 +32,24 @@ async function run() {
   }
 }
 run().catch(console.dir);
+
+app.get('/mongo', async (req,res)=>{
+
+  console.log('in /mongo');
+  await client.connect();
+  
+  console.log('connected?');
+  // Send a ping to confirm a successful connection
+  
+  let result = await client.db("brandon-db").collection("Test1")
+    .find({}).toArray(); 
+  console.log(result); 
+
+  res.render('mongo', {
+    mongoResult : result
+  });
+
+})
 
 
 //console.log('im on a node server change that and that tanad f, yo');
