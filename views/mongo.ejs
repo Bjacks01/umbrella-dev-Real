@@ -1,10 +1,12 @@
-<h1>see my mongoDB results</h1>
+<h1>see my mongoDB results</h1> 
 
-<%=mongoResult %> 
-
-<% for(i=0;i<mongoResult.length;i++){ %> 
-
-    <p><%= mongoResult[i].post;%></p>
-     
-
+<h3> my blog posts/team names</h3> 
+  <% for (var i=0; i< mongoResult.length; i++ ) { %>
+    <form method="POST" action="/update/<%= mongoResult[i]._id %>" style="display: inline-block">  
+      <%= mongoResult[i].teamName %> 
+    <input type="submit" value="update"> 
+  </form>
+  <br/>
 <% } %> 
+
+     

@@ -1,9 +1,13 @@
 require('dotenv').config()
 const express = require('express')
 const app = express()
+const bodyParser = require('body-parser')
+const { urlencoded } = require('body-parser')
+const { ObjectId } = require('mongodb')
 const { MongoClient, ServerApiVersion } = require('mongodb');
-const uri = process.env.MONGO_URI; 
+const uri = `mongodb+srv://Brandon:${process.env.MONGO_PASS}@cluster0.ta5nh.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0` 
 
+app.use(bodyParser.urlencoded({ extended: true }))
 app.set('view engine', 'ejs')
 app.use(express.static('./public/'))
 
@@ -33,6 +37,18 @@ async function run() {
 }
 run().catch(console.dir);
 
+app.get('/', function (req, res) {
+  // res.send('Hello Node from Ex on local dev box')
+  res.sendFile('index.html');
+})
+
+app.get('/ejs', (req,res)=>{
+  ``
+  res.render('index', {
+    myServerVariable : "something from server"
+  });
+})
+
 app.get('/mongo', async (req,res)=>{
 
   console.log('in /mongo');
@@ -51,22 +67,33 @@ app.get('/mongo', async (req,res)=>{
 
 })
 
+app.get('/insert', async (req,res)=> {
 
-//console.log('im on a node server change that and that tanad f, yo');
+  console.log('in /insert');
+  //connect to db,
+  await client.connect();
+  //point to the collection 
+  await client.db("brandon-db").collection("Test1").insertOne({ post: 'hardcoded post insert '});
+  await client.db("brandon-db").collection("Test1").insertOne({ teamName: 'Dolphins'});  
+  //insert into it
+  res.render('insert');
 
-app.get('/', function (req, res) {
-  // res.send('Hello Node from Ex on local dev box')
-  res.sendFile('index.html');
+});
+
+app.post('/update/:id', async (req,res)=>{
+
+  console.log("req.parms.id: ", req.params.id)
+
+  client.connect; 
+  const collection = client.db("brandon-db").collection("Test1");
+  let result = await collection.findOneAndUpdate( 
+  {"_id": new ObjectId(req.params.id)}, { $set: {"post": "NEW POST" } }
+)
+.then(result => {
+  console.log(result); 
+  res.redirect('/mongo');
 })
 
-app.get('/', function (req, res) {
-
-})
-app.get('/ejs', (req,res)=>{
-  ``
-  res.render('index', {
-    myServerVariable : "something from server"
-  });
 })
 
 app.listen(5000)
