@@ -96,4 +96,20 @@ app.post('/update/:id', async (req,res)=>{
 
 })
 
+app.post('/delete/:id', async (req,res)=>{
+
+  console.log("req.parms.id: ", req.params.id)
+
+  client.connect; 
+  const collection = client.db("brandon-db").collection("Test1");
+  let result = await collection.findOneAndDelete( 
+  {"_id": new ObjectId(req.params.id)})
+
+.then(result => {
+  console.log(result); 
+  res.redirect('/mongo');
+})
+
+})
+
 app.listen(5000)
