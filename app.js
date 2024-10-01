@@ -37,17 +37,29 @@ async function run() {
 }
 run().catch(console.dir);
 
-app.get('/', function (req, res) {
+app.get('/', async (req, res)=>{
   // res.send('Hello Node from Ex on local dev box')
-  res.sendFile('index.html');
-})
+  console.log('in home');
+  await client.connect();
+  
+  console.log('connected?');
+  // Send a ping to confirm a successful connection
+  
+  let result = await client.db("brandon-db").collection("players")
+    .find({}).toArray(); 
+  console.log(result); 
 
-app.get('/ejs', (req,res)=>{
-  ``
-  res.render('index', {
-    myServerVariable : "something from server"
+  res.render('index.ejs', {
+    players : result
   });
 })
+
+// app.get('/ejs', (req,res)=>{
+//   ``
+//   res.render('index', {
+//     myServerVariable : "something from server"
+//   });
+// })
 
 app.get('/mongo', async (req,res)=>{
 

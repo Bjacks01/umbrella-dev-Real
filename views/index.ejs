@@ -1,3 +1,42 @@
-<h1>My ejs page</h1>
-<br>
-<%= myServerVariable %>
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>Roster</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+  <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.0.2/css/bootstrap.min.css'>
+  <link rel="stylesheet" href="public/styles/style.css">
+</head>
+
+<body>
+    <div class='navbar navbar-expand-lg'>
+      <div id="navLinks">
+        <div class="navbar-nav">
+          <a class="nav-item nav-link active" href="#">Repo</a>
+          <a class="nav-item nav-link" href="#">Add Player</a>
+          <a class="nav-item nav-link" href="#">Delete Player</a>
+          <a class="nav-item nav-link" href="#" target="_blank">Update Info</a>
+        </div>
+      </div>
+    </div>
+  <div id="header">
+    <h1>Tennessee Titans Roster</h1>
+  </div>
+  <div class="accordion" id="accordionExample">
+    <% for (var i=0; i< players.length; i++ ) { %>
+      <div class="accordion-item">
+        <h2 class="accordion-header" id="headingOne">
+          <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+            <%= players[i].name %>
+          </button>
+        </h2>
+        <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+          <div class="accordion-body">
+            <strong><%= players[i].position %></strong>
+            <br>
+            <%= players[i].number %>
+        </div>
+      </div>
+    <% } %>
+</div>
+</body>
