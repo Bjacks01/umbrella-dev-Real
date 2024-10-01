@@ -67,16 +67,19 @@ app.get('/mongo', async (req,res)=>{
 
 })
 
-app.get('/insert', async (req,res)=> {
+app.post('/insert', async (req,res)=> {
 
   console.log('in /insert');
+
+  console.log('request', req.body.newPost);
+  console.log('request', req.body.teamName);
   //connect to db,
   await client.connect();
   //point to the collection 
-  await client.db("brandon-db").collection("Test1").insertOne({ post: 'hardcoded post insert '});
-  await client.db("brandon-db").collection("Test1").insertOne({ teamName: 'Dolphins'});  
+  await client.db("brandon-db").collection("Test1").insertOne({ post: req.body.newPost});
+  await client.db("brandon-db").collection("Test1").insertOne({ teamName: req.body.teamName});  
   //insert into it
-  res.render('insert');
+  res.redirect('/mongo');
 
 });
 
