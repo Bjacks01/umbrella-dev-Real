@@ -1,83 +1,63 @@
 <!DOCTYPE html>
-<html lang="en">
-  <head>
-    <title>Brandon-Juliette-Home</title>
-    <meta charset="UTF-8">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.0.2/css/bootstrap.min.css">
-    <link rel="stylesheet" type="text/css" href="styles/style.css">
-  </head>
-  <body>
-    <div id='bigHead'>
-        <div id='headPanel'>
-          <div id='intro'>
-            <h1>Brandon Jacks</h1>
-            <h2>Web Dev Final</h2>
-            <h4 id='classDate'>CIS-376 | Fall 23</h4>
-          </div>
-        </div>
-        <div class='navbar navbar-expand-lg'>
-          <div id="navLinks">
-            <div class="navbar-nav">
-              <a class="nav-item nav-link active" href="#">Context</a>
-              <a class="nav-item nav-link" href="pages/problem.html">Problem</a>
-              <a class="nav-item nav-link" href="pages/solution.html">Solution</a>
-              <a class="nav-item nav-link" href="https://github.com/Bjacks01/Juliette-Project" target="_blank">See the Code</a>
-              <a class="nav-item nav-link" href="https://github.com/Bjacks01/umbrella-dev-Real" target="_blank">See the 2024 WebApp Code</a>
-            </div>
-          </div>
-        </div>
-    </div>
-    <div id="mainContent">
-       <div class="content1">
-          <div class="infoPara">
-            <p>The importance of user experience in web development cannot be understated. To the average person, user experience equates to the whole page; and if it isn’t good then it won’t matter how many other bells and whistles are running under the hood. In order to maximize the value a business sees from its online presence it is important to utilize a website that is clear and easy-to-understand.</p>
-            <p>Below are some examples of good and bad web design:</p>
-          </div>
-       </div>
-       <div class="content2">
-         <div class="row" id="cardRow">
-            <div class="col-md-4">
-                <div class="card">
-                    <img class="card-img-top" src="pics/badwebdesign.png" alt="Card image cap">
-                    <div class="card-body">
-                      <h5 class="card-title">Bad - Yale School of Art</h5>
-                      <p class="card-text">Poor layout and a distracting background</p>
-                      <a href="https://www.art.yale.edu/" class="btn linkBtn" target="_blank">See for yourself</a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-4">
-                <div class="card">
-                    <img class="card-img-top" src="pics/iLuvMaCannabis.png" alt="Card image cap">
-                    <div class="card-body">
-                      <h5 class="card-title">Good - MaTrue Cannabis</h5>
-                      <p class="card-text">Highly interactive, yet simple to navigate.</p>
-                      <a href="https://matruecannabis.com/en/" class="btn linkBtn" target="_blank">See for yourself</a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-4">
-                <div class="card">
-                    <img class="card-img-top" src="pics/lingscars.png" alt="Card image cap">
-                    <div class="card-body">
-                      <h5 class="card-title">Depends - Ling's Cars</h5>
-                      <p class="card-text">You know, this one is actually pretty good.</p>
-                      <a href="https://www.lingscars.com/" class="btn linkBtn" target="_blank">See for yourself</a>
-                    </div>
-                </div>
-            </div>
-         </div>
-       </div>
-       <div class="content3">
-       </div>
-    </div>
-    <footer id="foot">
-        <hr class="hrDept">
-        <p>Brandon Jacks - 2023</p>
-    </footer>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/js/bootstrap.min.js"></script>
-    <script src="scripts/script.js"></script>
-  </body>
-</html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>Roster</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+  <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.0.2/css/bootstrap.min.css'>
+  <link rel="stylesheet" href="styles/style.css">
+</head>
 
+<body>
+    <div class='navbar navbar-expand-lg'>
+      <div id="navLinks">
+        <div class="navbar-nav">
+          <a class="nav-item nav-link active" href="#">Repo</a>
+          <a class="nav-item nav-link" href="#">Add Player</a>
+          <a class="nav-item nav-link" href="#">Delete Player</a>
+          <a class="nav-item nav-link" href="#" target="_blank">Update Info</a>
+        </div>
+      </div>
+    </div>
+  <div id="header">
+    <h1>Tennessee Titans Roster</h1>
+  </div>
+  <div class="accordion" id="accordionExample">
+  <div class="accordion-item">
+    <h2 class="accordion-header" id="headingOne">
+      <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+        Accordion Item #1
+      </button>
+    </h2>
+    <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+      <div class="accordion-body">
+        <strong>This is the first item's accordion body.</strong> It is shown by default, until the collapse plugin adds the appropriate classes that we use to style each element. These classes control the overall appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. It's also worth noting that just about any HTML can go within the <code>.accordion-body</code>, though the transition does limit overflow.
+      </div>
+    </div>
+  </div>
+  <div class="accordion-item">
+    <h2 class="accordion-header" id="headingTwo">
+      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+        Accordion Item #2
+      </button>
+    </h2>
+    <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
+      <div class="accordion-body">
+        <strong>This is the second item's accordion body.</strong> It is hidden by default, until the collapse plugin adds the appropriate classes that we use to style each element. These classes control the overall appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. It's also worth noting that just about any HTML can go within the <code>.accordion-body</code>, though the transition does limit overflow.
+      </div>
+    </div>
+  </div>
+  <div class="accordion-item">
+    <h2 class="accordion-header" id="headingThree">
+      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+        Accordion Item #3
+      </button>
+    </h2>
+    <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionExample">
+      <div class="accordion-body">
+        <strong>This is the third item's accordion body.</strong> It is hidden by default, until the collapse plugin adds the appropriate classes that we use to style each element. These classes control the overall appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. It's also worth noting that just about any HTML can go within the <code>.accordion-body</code>, though the transition does limit overflow.
+      </div>
+    </div>
+  </div>
+</div>
+</body>
