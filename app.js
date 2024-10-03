@@ -6,6 +6,7 @@ const { urlencoded } = require('body-parser')
 const { ObjectId } = require('mongodb')
 const { MongoClient, ServerApiVersion } = require('mongodb');
 const uri = `mongodb+srv://Brandon:${process.env.MONGO_PASS}@cluster0.ta5nh.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0` 
+const PORT = process.env.PORT || 3000;
 
 app.use(bodyParser.urlencoded({ extended: true }))
 app.set('view engine', 'ejs')
@@ -127,4 +128,7 @@ app.post('/delete/:id', async (req,res)=>{
 
 })
 
-app.listen(5000)
+//app.listen(5000)
+app.listen(PORT, ()=> {
+  console.log(`server is running and listening on port ${PORT}`);
+});
