@@ -9,6 +9,7 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
   <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.0.2/css/bootstrap.min.css'>
   <link rel="stylesheet" type="text/css" href="styles/style.css">
+  <script src="scripts/script.js"></script>
 </head>
 
 <body>
@@ -16,8 +17,8 @@
       <div id="navLinks">
         <div class="navbar-nav">
           <a class="nav-item nav-link active" href="#">Repo</a>
-          <a class="nav-item nav-link" href="#">Add Player</a>
-          <a class="nav-item nav-link" href="#">Delete Player</a>
+          <a class="nav-item nav-link" onclick="toggle_visibility('add-popup');">Add Player</a>
+          <a class="nav-item nav-link" onclick="toggle_visibility('delete-popup');">Delete Player</a>
           <a class="nav-item nav-link" href="#" target="_blank">Update Info</a>
         </div>
       </div>
@@ -42,7 +43,48 @@
       </div>
     <% } %>
 </div>
+<!-- ADD MODAL -->
+<div class="popup-position" id="add-popup">
+  <div class="popup-wrapper">
+    <div id="popup-container">
+        <h5>Add a Player</h5>
+        <form method="POST" action="/insert">
+            <div class="form-group">
+              <label for="newName">Name</label>
+              <input id="newName" type="text" class="form-control">
+            </div>
+            <div class="form-group">
+              <label for="newPosition">Position</label>
+              <input id="newPosition" type="text" class="form-control">
+            </div>
+            <div class="form-group">
+                <label for="newNumber">Number</label>
+                <input id="newNumber" type="text" class="form-control">
+            </div>
+            <input type="submit" value="Add Player" onclick="toggle_visibility('add-popup');">
+        </form>
+        <div class="modal-footer">
+          <p><a herf="javascript:void(0)" onclick="toggle_visibility('add-popup');">Close Popup</a></p>
+        </div>
+    </div>
+</div>
+</div>
+<!-- DELETE MODAL -->
+<div class="popup-position" id="delete-popup">
+  <div class="popup-wrapper">
+    <div id="popup-container">
+        <h5>Delete a Player</h5>
+        <form>
+            <div class="form-group">
+              <label for="name">Name</label>
+              <input type="text" class="form-control">
+            </div>
+        </form>
+        <div class="modal-footer">
+          <button class="btn btn-primary btn-block">Submit</button>
+          <p><a herf="javascript:void(0)" onclick="toggle_visibility('delete-popup');">Close Popup</a></p>
+        </div>
+    </div>
+</div>
+</div>
 </body>
-
-<!-- //collapse show -->
-<!-- data-bs-parent="#playersAccordion" -->
