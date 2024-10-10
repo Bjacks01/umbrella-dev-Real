@@ -23,22 +23,48 @@
         </div>
       </div>
     </div>
-  <div id="header">
-    <h1>Tennessee Titans Roster</h1>
+  <div id="titleHeader">
+    <div id="titleP">
+      <h1 id="title">TENNESSEE TITANS ROSTER</h1>
+    </div>
   </div>
   <div class="accordion" id="playersAccordion">
     <% for (var i=0; i< players.length; i++ ) { %>
       <div class="accordion-item">
-        <h2 class="accordion-header" id="heading<%= i %>">
-          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse<%= i %>" aria-expanded="false" aria-controls="collapse<%= i %>">
+        <h2 class="accordion-header" id="heading<%= i %>" display="inline-block">
+          <button id="playerName" class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse<%= i %>" aria-expanded="false" aria-controls="collapse<%= i %>">
             <%= players[i].name %>
           </button>
         </h2>
         <div id="collapse<%= i %>" class="accordion-collapse collapse hide" aria-labelledby="heading<%= i %>">
-          <div class="accordion-body">
-            <strong><%= players[i].position %></strong>
-            <br>
-            <%= players[i].number %>
+          <div class="accordion-body clearfix" display="inline-block">
+            <div class="accordion-interior1">
+              Position: <strong><%= players[i].position %></strong>
+              <br>
+              Number: <%= players[i].number %>
+            </div>
+            <div class="accordion-interior2">
+              <form method="POST" action="/delete/<%= players[i]._id %>">  
+                <input id="deletebtn" type="submit" value="delete"> 
+              </form>
+            <button id="deletebtn" onclick="toggle_visibility('update<%= i %>')">Update</button>
+            </div>
+            <form method="POST" action="/update/<%= players[i]._id %>">
+            <div id="update<%= i %>" class="accordion-interior3">
+              <div class="accordion-form1">
+                <input class="topInput" type="text" value="test1">
+                <br>
+                <input type="text" value="test2">
+              </div>
+              <div class="accordion-form2">              
+                <input class="topInput" type="text" value="test3">
+                <br>
+                <input type="submit" value="submit" style="float: right"></div>
+            </div>
+            <div id="update<%= i %>" class="accordion-interior4">
+
+            </div>
+          </form>
         </div>
       </div>
     <% } %>
@@ -51,15 +77,15 @@
         <form method="POST" action="/insert">
             <div class="form-group">
               <label for="newName">Name</label>
-              <input id="newName" type="text" class="form-control">
+              <input id="newName" name="newName" type="text" class="form-control">
             </div>
             <div class="form-group">
               <label for="newPosition">Position</label>
-              <input id="newPosition" type="text" class="form-control">
+              <input id="newPosition" name="newPosition" type="text" class="form-control">
             </div>
             <div class="form-group">
                 <label for="newNumber">Number</label>
-                <input id="newNumber" type="text" class="form-control">
+                <input id="newNumber" name="newNumber" type="text" class="form-control">
             </div>
             <input type="submit" value="Add Player" onclick="toggle_visibility('add-popup');">
         </form>

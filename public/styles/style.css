@@ -1,5 +1,23 @@
+/*debug for divs*/
+/* div {
+  outline: 1px solid red;
+} */
+
+@font-face {
+  font-family: titans;
+  src: url("../fonts/NFLTITAN.TTF");
+}
+@font-face {
+  font-family: varsity;
+  src: url("../fonts/varsity_regular.ttf");
+}
+body {
+  background-image: url("../pics/titans.png");
+  background-repeat: repeat-x;
+  background-attachment: fixed;
+}
 .navbar {
-  background-color: #4B92DB;
+  background-color: #c40c33;
   margin-top: -8px;
 }
 #navLinks {
@@ -7,6 +25,63 @@
 }
 .navbar a{
   color: white;
+}
+#titleHeader {
+  text-align: center;
+}
+#titleP {
+  border-radius: 15px;
+  font-family: varsity;
+  background-color: white;
+  vertical-align: middle;
+  display: inline-block;
+  margin-top: 10px;
+  padding-top: 5px;
+  padding-left: 5px;
+  padding-right: 5px;
+  margin-bottom: 10px;
+}
+#updatebtn {
+  border: thin;
+}
+.accordion {
+  font-family: titans;
+  margin-left: 20%;
+  margin-right: 20%;
+  border: none;
+}
+.accordion-item {
+  border: 0px;
+}
+.accordion-interior1 {
+  display: block;
+  float: left;
+}
+.accordion-interior2 {
+  display: block;
+  float: left;
+  margin-left: 100px;
+  text-align: center;
+}
+.accordion-interior3 {
+  display: none;
+  float: right;
+}
+.accordion-form1 {
+  display: block;
+  float: left;
+}
+.accordion-form2 {
+  display: block;
+  float: left;
+}
+.topInput {
+  margin-bottom: 2px;
+}
+.clearfix::after {
+  content: "";
+  clear: both;
+  display: table;
 }
 
 /* // A Dark Overlay that sits between the main page and the modal so the Modal pops out */

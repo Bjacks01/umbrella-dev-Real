@@ -84,7 +84,7 @@ app.post('/insert', async (req,res)=> {
 
   console.log('in /insert');
 
-  console.log(req);
+  //console.log(req);
   console.log('request', req.body.newName);
   console.log('request', req.body.newPosition);
   console.log('request', req.body.newNumber);
@@ -121,13 +121,13 @@ app.post('/delete/:id', async (req,res)=>{
   console.log("req.parms.id: ", req.params.id)
 
   client.connect; 
-  const collection = client.db("brandon-db").collection("Test1");
+  const collection = client.db("brandon-db").collection("players");
   let result = await collection.findOneAndDelete( 
   {"_id": new ObjectId(req.params.id)})
 
 .then(result => {
   console.log(result); 
-  res.redirect('/mongo');
+  res.redirect('/');
 })
 
 })
