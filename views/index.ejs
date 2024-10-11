@@ -16,10 +16,8 @@
     <div class='navbar navbar-expand-lg'>
       <div id="navLinks">
         <div class="navbar-nav">
-          <a class="nav-item nav-link active" href="#">Repo</a>
+          <a class="nav-item nav-link active" href="https://github.com/Bjacks01/umbrella-dev-Real/tree/main" target="_blank">Repo</a>
           <a class="nav-item nav-link" onclick="toggle_visibility('add-popup');">Add Player</a>
-          <a class="nav-item nav-link" onclick="toggle_visibility('delete-popup');">Delete Player</a>
-          <a class="nav-item nav-link" href="#" target="_blank">Update Info</a>
         </div>
       </div>
     </div>
@@ -47,26 +45,24 @@
               <form method="POST" action="/delete/<%= players[i]._id %>">  
                 <input id="deletebtn" type="submit" value="delete"> 
               </form>
-            <button id="deletebtn" onclick="toggle_visibility('update<%= i %>')">Update</button>
+            <button id="updateBtn" onclick="toggle_visibility('update<%= i %>')">Update</button>
             </div>
             <form method="POST" action="/update/<%= players[i]._id %>">
             <div id="update<%= i %>" class="accordion-interior3">
               <div class="accordion-form1">
-                <input class="topInput" type="text" value="test1">
+                <input id="updateName" class="topInput" type="text" placeholder="Name">
                 <br>
-                <input type="text" value="test2">
+                <input id="updatePosition" type="text" placeholder="Position">
               </div>
               <div class="accordion-form2">              
-                <input class="topInput" type="text" value="test3">
+                <input id="updateNumber" class="topInput" type="text" placeholder="Number">
                 <br>
                 <input type="submit" value="submit" style="float: right"></div>
-            </div>
-            <div id="update<%= i %>" class="accordion-interior4">
-
             </div>
           </form>
         </div>
       </div>
+    </div>
     <% } %>
 </div>
 <!-- ADD MODAL -->
@@ -87,30 +83,11 @@
                 <label for="newNumber">Number</label>
                 <input id="newNumber" name="newNumber" type="text" class="form-control">
             </div>
-            <input type="submit" value="Add Player" onclick="toggle_visibility('add-popup');">
-        </form>
         <div class="modal-footer">
+          <p><input type="submit" value="Add Player" onclick="toggle_visibility('add-popup');"></p>
           <p><a herf="javascript:void(0)" onclick="toggle_visibility('add-popup');">Close Popup</a></p>
         </div>
+      </form>
     </div>
 </div>
 </div>
-<!-- DELETE MODAL -->
-<div class="popup-position" id="delete-popup">
-  <div class="popup-wrapper">
-    <div id="popup-container">
-        <h5>Delete a Player</h5>
-        <form>
-            <div class="form-group">
-              <label for="name">Name</label>
-              <input type="text" class="form-control">
-            </div>
-        </form>
-        <div class="modal-footer">
-          <button class="btn btn-primary btn-block">Submit</button>
-          <p><a herf="javascript:void(0)" onclick="toggle_visibility('delete-popup');">Close Popup</a></p>
-        </div>
-    </div>
-</div>
-</div>
-</body>

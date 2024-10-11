@@ -102,16 +102,20 @@ app.post('/insert', async (req,res)=> {
 
 app.post('/update/:id', async (req,res)=>{
 
+  console.log('in /update');
   console.log("req.parms.id: ", req.params.id)
+  console.log('request', req.body.updateName);
+  console.log('request', req.body.updatePosition);
+  console.log('request', req.body.updateNumber);
 
   client.connect; 
-  const collection = client.db("brandon-db").collection("Test1");
+  const collection = client.db("brandon-db").collection("players");
   let result = await collection.findOneAndUpdate( 
-  {"_id": new ObjectId(req.params.id)}, { $set: {"post": "NEW POST" } }
+  {"_id": new ObjectId(req.params.id)}, { $set: {name : req.body.updateName, position : req.body.updatePosition, number : req.body.updateNumber } }
 )
 .then(result => {
   console.log(result); 
-  res.redirect('/mongo');
+  res.redirect('/');
 })
 
 })
