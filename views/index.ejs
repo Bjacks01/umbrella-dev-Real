@@ -50,12 +50,12 @@
             <form method="POST" action="/update/<%= players[i]._id %>">
             <div id="update<%= i %>" class="accordion-interior3">
               <div class="accordion-form1">
-                <input id="updateName" class="topInput" type="text" placeholder="Name">
+                <input id="updateName" name="updateName" class="topInput" type="text" placeholder="Name">
                 <br>
-                <input id="updatePosition" type="text" placeholder="Position">
+                <input id="updatePosition" name="updatePosition" type="text" placeholder="Position">
               </div>
               <div class="accordion-form2">              
-                <input id="updateNumber" class="topInput" type="text" placeholder="Number">
+                <input id="updateNumber" name="updateNumber" class="topInput" type="text" placeholder="Number">
                 <br>
                 <input type="submit" value="submit" style="float: right"></div>
             </div>
