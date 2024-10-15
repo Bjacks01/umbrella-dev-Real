@@ -1,6 +1,9 @@
-# ubiquitous-umbrella-dev
-Brandon's version of barry's fall 2024 dev thingy
+# umbrella-dev-Real
+Full Stack development project for CIS 486 - Projects in Information Systems
 
+mockup NFL roster application using node.js, express, and MongoDB
 
-things to remember:
-- ejs partials
+Front-End frameworks used include:
+- BS5
+- JQUERY
+- CSS NORMALIZE
