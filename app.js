@@ -84,16 +84,15 @@ app.post('/insert', async (req,res)=> {
 
   console.log('in /insert');
 
+  //debug logs
   //console.log(req);
-  console.log('request', req.body.newName);
-  console.log('request', req.body.newPosition);
-  console.log('request', req.body.newNumber);
+  // console.log('request', req.body.newName);
+  // console.log('request', req.body.newPosition);
+  // console.log('request', req.body.newNumber);
 
   //connect to db,
   await client.connect();
   //point to the collection 
-  // await client.db("brandon-db").collection("Test1").insertOne({ post: req.body.newPost});
-  // await client.db("brandon-db").collection("Test1").insertOne({ teamName: req.body.teamName}); 
   await client.db("brandon-db").collection("players").insertOne({name : req.body.newName, position : req.body.newPosition, number: req.body.newNumber}); 
   //insert into it
   res.redirect('/');
@@ -103,10 +102,11 @@ app.post('/insert', async (req,res)=> {
 app.post('/update/:id', async (req,res)=>{
 
   console.log('in /update');
-  console.log("req.parms.id: ", req.params.id)
-  console.log('request', req.body.updateName);
-  console.log('request', req.body.updatePosition);
-  console.log('request', req.body.updateNumber);
+  //debug logs
+  // console.log("req.parms.id: ", req.params.id)
+  // console.log('request', req.body.updateName);
+  // console.log('request', req.body.updatePosition);
+  // console.log('request', req.body.updateNumber);
 
   client.connect; 
   const collection = client.db("brandon-db").collection("players");
