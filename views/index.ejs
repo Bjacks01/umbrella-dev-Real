@@ -1,3 +1,93 @@
-<h1>My ejs page</h1>
-<br>
-<%= myServerVariable %>
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>Roster</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+  <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.0.2/css/bootstrap.min.css'>
+  <link rel="stylesheet" type="text/css" href="styles/style.css">
+  <script src="scripts/script.js"></script>
+</head>
+
+<body>
+    <div class='navbar navbar-expand-lg'>
+      <div id="navLinks">
+        <div class="navbar-nav">
+          <a class="nav-item nav-link active" href="https://github.com/Bjacks01/umbrella-dev-Real/tree/main" target="_blank">Repo</a>
+          <a class="nav-item nav-link" onclick="toggle_visibility('add-popup');">Add Player</a>
+        </div>
+      </div>
+    </div>
+  <div id="titleHeader">
+    <div id="titleP">
+      <h1 id="title">TENNESSEE TITANS ROSTER</h1>
+    </div>
+  </div>
+  <div class="accordion" id="playersAccordion">
+    <% for (var i=0; i< players.length; i++ ) { %>
+      <div class="accordion-item">
+        <h2 class="accordion-header" id="heading<%= i %>" display="inline-block">
+          <button id="playerName" class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse<%= i %>" aria-expanded="false" aria-controls="collapse<%= i %>">
+            <%= players[i].name %>
+          </button>
+        </h2>
+        <div id="collapse<%= i %>" class="accordion-collapse collapse hide" aria-labelledby="heading<%= i %>">
+          <div class="accordion-body clearfix" display="inline-block">
+            <div class="accordion-interior1">
+              Position: <strong><%= players[i].position %></strong>
+              <br>
+              Number: <%= players[i].number %>
+            </div>
+            <div class="accordion-interior2">
+              <form method="POST" action="/delete/<%= players[i]._id %>">  
+                <input id="deletebtn" type="submit" value="delete"> 
+              </form>
+            <button id="updateBtn" onclick="toggle_visibility('update<%= i %>')">Update</button>
+            </div>
+            <form method="POST" action="/update/<%= players[i]._id %>">
+            <div id="update<%= i %>" class="accordion-interior3">
+              <div class="accordion-form1">
+                <input id="updateName" name="updateName" class="topInput" type="text" placeholder="Name">
+                <br>
+                <input id="updatePosition" name="updatePosition" type="text" placeholder="Position">
+              </div>
+              <div class="accordion-form2">              
+                <input id="updateNumber" name="updateNumber" class="topInput" type="text" placeholder="Number">
+                <br>
+                <input type="submit" value="submit" style="float: right"></div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+    <% } %>
+</div>
+<!-- ADD MODAL -->
+<div class="popup-position" id="add-popup">
+  <div class="popup-wrapper">
+    <div id="popup-container">
+        <h5>Add a Player</h5>
+        <form method="POST" action="/insert">
+            <div class="form-group">
+              <label for="newName">Name</label>
+              <input id="newName" name="newName" type="text" class="form-control">
+            </div>
+            <div class="form-group">
+              <label for="newPosition">Position</label>
+              <input id="newPosition" name="newPosition" type="text" class="form-control">
+            </div>
+            <div class="form-group">
+                <label for="newNumber">Number</label>
+                <input id="newNumber" name="newNumber" type="text" class="form-control">
+            </div>
+        <div class="modal-footer">
+          <p><input type="submit" value="Add Player" onclick="toggle_visibility('add-popup');"></p>
+          <p><a herf="javascript:void(0)" onclick="toggle_visibility('add-popup');">Close Popup</a></p>
+        </div>
+      </form>
+    </div>
+</div>
+</div>
