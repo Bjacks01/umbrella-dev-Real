@@ -7,3 +7,6 @@ Front-End frameworks used include:
 - BS5
 - JQUERY
 - CSS NORMALIZE
+
+Dev Workflow Example: 
+issues #3-#5 and Dev milestone mary
